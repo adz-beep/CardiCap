@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CardiCap — Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0f0b;
+    --panel: #121a13;
+    --panel-border: rgba(140, 247, 184, 0.14);
+    --mint: #8cf7b8;
+    --mint-dim: #6fd39c;
+    --text: #eef4ef;
+    --muted: #8fa091;
+    --flag-red: #ef5350;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 85% 0%, rgba(140,247,184,0.06), transparent 45%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--mint);}
+  .wrap{
+    max-width:740px;
+    margin:0 auto;
+    padding:56px 24px 100px;
+  }
+  header.hero{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:56px;
+  }
+  .flagmark{width:34px;height:34px;flex:0 0 auto;}
+  .wordmark{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:-0.01em;
+  }
+  .wordmark .cap{color:var(--mint);}
+  .eyebrow{
+    color:var(--mint);
+    font-size:14px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:36px;
+    line-height:1.15;
+    margin:0 0 14px;
+  }
+  .lede{
+    color:var(--muted);
+    font-size:16.5px;
+    margin:0 0 56px;
+    max-width:52ch;
+  }
+  section{margin-bottom:52px;}
+  h2{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:21px;
+    margin:0 0 18px;
+  }
+  .section-sub{
+    color:var(--muted);
+    font-size:14.5px;
+    margin:-10px 0 20px;
+  }
+  .step-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+  }
+  .step-card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:18px;
+    padding:20px 18px;
+  }
+  .step-icon{
+    width:30px;height:30px;
+    margin-bottom:14px;
+    color:var(--mint);
+  }
+  .step-card .label{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    color:var(--text);
+    font-size:16px;
+    display:block;
+    margin-bottom:5px;
+  }
+  .step-card .desc{
+    color:var(--muted);
+    font-size:13.5px;
+  }
+  .settings-note{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:12px;
+    padding:14px 18px;
+    background:transparent;
+    border:1px dashed var(--panel-border);
+    border-radius:14px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  .settings-note svg{width:18px;height:18px;flex:0 0 auto;color:var(--mint-dim);}
+  .rules-card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:20px;
+    padding:24px 26px;
+  }
+  .objective{
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    font-weight:500;
+    color:var(--mint);
+    margin:0 0 18px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--panel-border);
+  }
+  .rules-card ol{margin:0; padding-left:20px;}
+  .rules-card li{margin-bottom:11px;}
+  .rules-card li:last-child{margin-bottom:0;}
+  .rules-card .scoring-note{
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid var(--panel-border);
+    color:var(--muted);
+    font-size:14px;
+  }
+  details{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:16px;
+    padding:16px 20px;
+    margin-bottom:10px;
+  }
+  details summary{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:15.5px;
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{
+    content:'+';
+    color:var(--mint);
+    font-size:20px;
+    flex:0 0 auto;
+  }
+  details[open] summary::after{content:'–';}
+  details p{
+    margin:12px 0 0;
+    color:var(--muted);
+    font-size:14.5px;
+  }
+  details code{
+    color:var(--text);
+    background:rgba(140,247,184,0.08);
+    padding:2px 6px;
+    border-radius:6px;
+    font-size:13.5px;
+  }
+  .contact{
+    background:linear-gradient(180deg, rgba(140,247,184,0.07), rgba(140,247,184,0.02));
+    border:1px solid var(--panel-border);
+    border-radius:20px;
+    padding:28px 28px 26px;
+    text-align:center;
+  }
+  .contact h2{margin-bottom:8px;}
+  .contact .sub{color:var(--muted); font-size:14px; margin:8px 0 20px;}
+  .email-btn{
+    display:inline-block;
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+    color:#08130b;
+    background:var(--mint);
+    padding:13px 26px;
+    border-radius:100px;
+  }
+  .email-btn:hover{background:var(--mint-dim);}
+  footer{
+    margin-top:60px;
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+  }
+  footer a{color:var(--muted); text-decoration:underline;}
+  @media (max-width:600px){
+    .step-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:44px 18px 80px;}
+    h1{font-size:29px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <svg class="flagmark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" rx="12" fill="#12251a"/>
+      <path d="M17 10v28" stroke="#eef4ef" stroke-width="2" stroke-linecap="round"/>
+      <path d="M17 12l14 5-14 5z" fill="#ef5350"/>
+      <ellipse cx="17" cy="38" rx="7" ry="2" stroke="#8cf7b8" stroke-width="1.4" opacity="0.6"/>
+    </svg>
+    <span class="wordmark">Cardi<span class="cap">Cap</span></span>
+  </header>
+
+  <p class="eyebrow">Support</p>
+  <h1>Need a hand?</h1>
+  <p class="lede">Learn the basics, fix a connection problem, or get in touch if something still isn't right.</p>
+
+  <section>
+    <h2>Ways to play</h2>
+    <div class="step-grid">
+      <div class="step-card">
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a8 8 0 0 1 16 0"/><path d="M4 11h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="11" r="1.4" fill="currentColor" stroke="none"/></svg>
+        <span class="label">Host</span>
+        <span class="desc">Start a nearby multiplayer game on your device. Other players join from their own devices.</span>
+      </div>
+      <div class="step-card">
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></svg>
+        <span class="label">Join</span>
+        <span class="desc">Find and join a CardiCap game being hosted nearby.</span>
+      </div>
+      <div class="step-card">
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10 19h4"/></svg>
+        <span class="label">Pass &amp; Play</span>
+        <span class="desc">Play together on a single device, passing it between players when turns change.</span>
+      </div>
+    </div>
+    <div class="settings-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg>
+      <span>Tap the gear icon on the home screen before starting a game to change the grid, scoring and other game rules.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>How CardiCap works</h2>
+    <div class="rules-card">
+      <p class="objective">The aim is simple: finish the round with the lowest score.</p>
+      <ol>
+        <li>Each player starts with a grid of face-down cards. Reveal any two of your own cards.</li>
+        <li>On your turn, either draw a card from the deck or take the top card from the discard pile.</li>
+        <li>If you draw from the deck, you can swap the card with any card in your grid — or discard it and reveal one of your face-down cards instead.</li>
+        <li>If you take the discard, swap it with a card in your grid.</li>
+        <li>Complete a matching line of cards with the same value to clear it. Whether rows, columns, or both can be cleared depends on your game settings.</li>
+        <li>When one player has revealed all of their remaining cards, every other player gets one final turn.</li>
+      </ol>
+      <p class="scoring-note">Scores are then calculated automatically according to the rules you chose. Lowest score wins.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Troubleshooting</h2>
+    <details>
+      <summary>I can't find a nearby game</summary>
+      <p>First, make sure the other player has started a game using Host and that you're both nearby. Turn on Wi-Fi and Bluetooth on both devices, then check that CardiCap has permission to access your local network: <code>Settings → Privacy &amp; Security → Local Network → CardiCap</code>. Keep the devices within a few metres of each other while connecting.</p>
+    </details>
+    <details>
+      <summary>A player disconnected during the game</summary>
+      <p>If the game is still available, return to the home screen on the disconnected device, tap Join, and reconnect to the same table.</p>
+    </details>
+    <details>
+      <summary>Can I change the grid size or game rules?</summary>
+      <p>Yes. Tap the gear icon on the home screen before starting a game. Changes apply to the next game you start.</p>
+    </details>
+  </section>
+
+  <div class="contact">
+    <h2>Still stuck?</h2>
+    <p class="sub">We read every message and usually reply within a couple of days.</p>
+    <a href="mailto:cardicap@icloud.com" class="email-btn">Email support</a>
+  </div>
+
+  <footer>
+    CardiCap · <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</div>
+</body>
+</html>

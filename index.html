@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CardiCap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0f0b;
+    --panel: #121a13;
+    --panel-border: rgba(140, 247, 184, 0.14);
+    --mint: #8cf7b8;
+    --mint-dim: #6fd39c;
+    --text: #eef4ef;
+    --muted: #8fa091;
+    --flag-red: #ef5350;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(140,247,184,0.08), transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .wrap{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+    padding:96px 24px 64px;
+    text-align:center;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .cards{
+    position:relative;
+    width:120px;
+    height:96px;
+    margin-bottom:32px;
+  }
+  .cards svg{position:absolute; top:0;}
+  .card-back{
+    width:78px;height:96px;
+    border-radius:14px;
+  }
+  .card-1{left:0; transform:rotate(-14deg);}
+  .card-2{left:22px; transform:rotate(6deg); z-index:1;}
+  .wordmark{
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:-0.02em;
+    margin:0 0 14px;
+  }
+  .wordmark .cap{color:var(--mint);}
+  .tagline{
+    color:var(--muted);
+    font-size:17px;
+    max-width:38ch;
+    margin:0 0 40px;
+  }
+  .cta-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:64px;
+  }
+  .btn{
+    font-family:'Fredoka', sans-serif;
+    font-size:15.5px;
+    font-weight:600;
+    text-decoration:none;
+    padding:13px 24px;
+    border-radius:100px;
+  }
+  .btn-primary{
+    color:#08130b;
+    background:var(--mint);
+  }
+  .btn-primary:hover{background:var(--mint-dim);}
+  .btn-secondary{
+    color:var(--text);
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+  }
+  .btn-secondary:hover{border-color:var(--mint-dim);}
+  .feature-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+    width:100%;
+    margin-bottom:8px;
+  }
+  .feature-card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:16px;
+    padding:20px 14px;
+  }
+  .feature-icon{
+    width:26px;height:26px;
+    color:var(--mint);
+    margin-bottom:10px;
+  }
+  .feature-card .label{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    display:block;
+    margin-bottom:4px;
+  }
+  .feature-card .desc{
+    color:var(--muted);
+    font-size:12.5px;
+  }
+  footer{
+    padding:32px 24px;
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+  }
+  footer a{color:var(--muted); text-decoration:underline;}
+  footer .sep{margin:0 8px; opacity:0.5;}
+  @media (max-width:560px){
+    .wrap{padding:72px 20px 48px;}
+    .wordmark{font-size:40px;}
+    .feature-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="cards">
+    <svg class="card-back card-1" viewBox="0 0 78 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="78" height="96" rx="14" fill="#12251a" stroke="#8cf7b8" stroke-opacity="0.25"/>
+      <path d="M26 22v52" stroke="#eef4ef" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M26 25l22 8-22 8z" fill="#ef5350"/>
+    </svg>
+    <svg class="card-back card-2" viewBox="0 0 78 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="78" height="96" rx="14" fill="#0f1c12" stroke="#8cf7b8" stroke-opacity="0.35"/>
+      <path d="M26 22v52" stroke="#eef4ef" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M26 25l22 8-22 8z" fill="#ef5350"/>
+    </svg>
+  </div>
+
+  <h1 class="wordmark">Cardi<span class="cap">Cap</span></h1>
+  <p class="tagline">A fast-paced card game of memory, risk and a little bit of golf. Play nearby or pass the phone around the table.</p>
+
+  <div class="cta-row">
+    <a href="support.html" class="btn btn-primary">Support</a>
+    <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a8 8 0 0 1 16 0"/><path d="M4 11h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="11" r="1.4" fill="currentColor" stroke="none"/></svg>
+      <span class="label">Host</span>
+      <span class="desc">Start a table for nearby players</span>
+    </div>
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></svg>
+      <span class="label">Join</span>
+      <span class="desc">Find a game nearby</span>
+    </div>
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10 19h4"/></svg>
+      <span class="label">Pass &amp; Play</span>
+      <span class="desc">Everyone on one device</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  CardiCap
+  <span class="sep">·</span>
+  <a href="support.html">Support</a>
+  <span class="sep">·</span>
+  <a href="privacy.html">Privacy Policy</a>
+</footer>
+
+</body>
+</html>
